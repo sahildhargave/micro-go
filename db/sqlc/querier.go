@@ -10,6 +10,8 @@ import (
 
 type Querier interface {
 	CreateAccount(ctx context.Context, arg CreateAccountParams) (Account, error)
+	GetAccount(ctx context.Context, id int64) (Account, error)
+	ListAccounts(ctx context.Context, arg ListAccountsParams) ([]Account, error)
 }
 
 var _ Querier = (*Queries)(nil)
