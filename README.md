@@ -51,4 +51,12 @@
 
 - [x] Durability - Data written by a successful transaction must be recorded in persistent storage.
   
-  
+  How to run sqltx
+
+  BEGIN;
+  ...
+  COMMIT;
+
+  BEGIN;
+  ...
+  ROLLLBACK;
