@@ -60,3 +60,17 @@
   BEGIN;
   ...
   ROLLLBACK;
+
+
+#### In Store_test use channel
+- channel use 
+```
+Channel is designed to connect concurretn Go routines,
+and allows them to safely share data with each other without explicit locking. In our case , we need 1 channel to receive the errors, and other channel to receive the TransferTxResult.
+
+```
+
+#### DB TXLOCK
+
+debug a deadloak
+
