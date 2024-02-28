@@ -80,3 +80,42 @@ debug a deadloak
 - [x] Non-repeatable Read
 - [x] Phantom Read
 - [x] Serialization anomaly
+
+# Avoiding Deadlocks in Go
+
+## Introduction
+- [x] Deadlocks can be a common issue in concurrent programming. This README provides some guidelines to help you avoid deadlocks in Go when working with goroutines and channels.
+
+## Tips to Avoid Deadlocks
+
+### 1. Always Release Locks in the Same Order
+   - If you acquire multiple locks, ensure you release them in the same order to prevent potential deadlocks.
+
+### 2. Use `select` with `default` Case
+   - When working with channels, prefer using `select` with a `default` case to handle non-blocking operations.
+   - This allows you to perform additional checks or take alternative actions when a channel operation would block.
+
+### 3. Avoid Nested Locks
+   - Avoid nesting locks whenever possible, as it increases the risk of deadlocks.
+   - If you must use nested locks, always release them in the reverse order of acquisition.
+
+### 4. Use `sync.Mutex` and `sync.RWMutex` Carefully
+   - When using locks, be cautious with `sync.Mutex` and `sync.RWMutex`.
+   - Prefer `sync.RWMutex` when multiple readers are expected, and use `sync.Mutex` when exclusive access is required.
+
+### 5. Be Mindful of Channel Closures
+   - Be careful when closing channels to avoid panics or deadlocks.
+   - Closing a channel more than once can result in a panic, so ensure proper synchronization.
+
+### 6. Monitor Goroutines
+   - Keep an eye on your goroutines using tools like the `goroutine` package or the race detector.
+   - Identify any unexpected or unhandled panics in your goroutines that might lead to deadlocks.
+
+### 7. Use `defer` for Unlocking Mutexes
+   - When using mutexes, utilize `defer` to ensure that the lock is always released, even if an error occurs or a return statement is encountered.
+
+### 8. Leverage `context` Package for Cancellation
+   - Use the `context` package to manage the lifecycle of your goroutines.
+   - This allows for clean shutdowns and helps avoid situations where a goroutine is waiting indefinitely.
+
+
