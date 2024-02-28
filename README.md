@@ -74,3 +74,9 @@ and allows them to safely share data with each other without explicit locking. I
 
 debug a deadloak
 
+##### Read Phenomena in ACID
+
+- [x] Dirty Read
+- [x] Non-repeatable Read
+- [x] Phantom Read
+- [x] Serialization anomaly
