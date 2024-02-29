@@ -43,8 +43,13 @@ jobs:
         run: |
           wget https://github.com/golang-migrate/migrate/releases/download/v4.17.0/migrate.linux-amd64.tar.gz
           tar xvzf migrate.linux-amd64.tar.gz
-          sudo mv migrate.linux-amd64 /usr/local/bin/migrate
-          rm migrate.linux-amd64.tar.gz
+          sudo mv migrate.linux-amd64/migrate /usr/local/bin/migrate
+          rm -rf migrate.linux-amd64 migrate.linux-amd64.tar.gz
+
+      - name: Debug Information
+        run: |
+          ls -l /usr/local/bin/migrate
+          file /usr/local/bin/migrate
 
       - name: Run migrations
         run: migrate -path db/migration -database "postgresql://root:postgres123@localhost:5432/simple_bank?sslmode=disable" -verbose up
