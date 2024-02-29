@@ -6,6 +6,11 @@
 - [ ] redis
 - [ ] jenkins
 - [ ] AWS
+- [ ] Github 
+- [ ] Travis
+- [ ] Jenkins
+- [ ] CircleCl
+- [ ] Actions
 - [ ] Many more in future
   
 
@@ -63,6 +68,7 @@
 
 
 #### In Store_test use channel
+
 - channel use 
 ```
 Channel is designed to connect concurretn Go routines,
@@ -76,10 +82,11 @@ debug a deadloak
 
 ##### Read Phenomena in ACID
 
-- [x] Dirty Read
-- [x] Non-repeatable Read
-- [x] Phantom Read
-- [x] Serialization anomaly
+- [x] Dirty Read          - read uncommited   cannot read commited ,cannot repeatable read ,not serializable
+- [x] Non-repeatable Read - read uncommited   read commited ,cannot repeatable read ,not serializable
+- [x] Phantom Read         - read uncommited  read commited,cannot repeatable read ,not serializable
+- [x] Serialization anomaly - read uncommited read commited,
+ repeatable read ,not serializable
 
 # Avoiding Deadlocks in Go
 
@@ -118,4 +125,10 @@ debug a deadloak
    - Use the `context` package to manage the lifecycle of your goroutines.
    - This allows for clean shutdowns and helps avoid situations where a goroutine is waiting indefinitely.
 
+
+```
+
+### Workflow 
+![alt text](./assets/image.png)
+![alt text](./assets/image1.png)
 
