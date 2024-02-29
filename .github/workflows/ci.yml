@@ -11,6 +11,24 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
 
+    # Service containers to run with `container-job`
+    services:
+      # Label used to access the service container
+      postgres:
+        # Docker Hub image
+        image: postgres12
+        # Provide the password for postgres
+        env:
+          POSTGRES_USER: root
+          POSTGRES_PASSWORD: postgres123
+          POSTGRES_DB: simple_bank
+        # Set health checks to wait until postgres has started
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
     steps:
     - name: Set up Go 1.x
       uses: actions/setup-go@v2
@@ -21,6 +39,8 @@ jobs:
     - name: Check out code into the Go module directory
       uses: actions/checkout@v2
 
+    - name: Run migrations
+      run: migrate -path db/migration -database "postgresql://root:postgres123@localhost:5432/simple_bank?sslmode=disable" -verbose up
 
     - name: Test
       run: go test -v .
