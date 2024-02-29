@@ -43,6 +43,8 @@ jobs:
         run: |
           wget https://github.com/golang-migrate/migrate/releases/download/v4.17.0/migrate.linux-amd64.tar.gz
           tar xvzf migrate.linux-amd64.tar.gz
+          ls -l  # Debugging step to list contents of the current directory
+          ls -l migrate.linux-amd64  # Debugging step to list contents of the extracted directory
           sudo mv migrate.linux-amd64 /usr/bin/migrate
           which migrate
 
