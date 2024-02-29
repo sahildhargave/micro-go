@@ -43,7 +43,7 @@ jobs:
         run: |
           wget https://github.com/golang-migrate/migrate/releases/download/v4.17.0/migrate.linux-amd64.tar.gz
           tar xvzf migrate.linux-amd64.tar.gz
-          sudo mv migrate.linux-amd64 /usr/local/bin/migrate
+          sudo mv migrate.linux-amd64 /home/sahil
           rm migrate.linux-amd64.tar.gz
 
       - name: Run migrations
