@@ -132,3 +132,40 @@ debug a deadloak
 ![alt text](./assets/image.png)
 ![alt text](./assets/image1.png)
 
+
+### .github\workflows
+- [x] ci.yml -
+- ci.yml - Add tests for all functions (e.g.,
+- | Workflow | Trigger      | Branches          |
+| -------- | ------------ | ----------------- |
+| Go       | push, pull_request | [master]          |
+
+| Job   | Operating System | Service Containers | Service Image     | Ports                 | Health Checks |
+| ----  | ----------------- | ------------------ | ----------------- | --------------------- | ------------- |
+| Test  | ubuntu-latest     | postgres           | postgres:14-alpine| 5432:5432 (host:container) | Yes           |
+
+| Steps                           |
+| ------------------------------- |
+| 1. Set up Go 1.x                |
+| 2. Check out code               |
+| 3. Install golang-migrate       |
+| 4. Debug Information            |
+| 5. Run migrations (Uncomment)   |
+| 6. Test                          |
+
+
+### Popular web frameworks
+
+- [x] Gin -Using bz of popular web frameworks
+- Beego
+- Echo
+- Revel
+- Martini
+- Fiber
+- Buffalo
+  
+### Popular HTTP routers
+- FastHttp
+- Gorilla Mux
+- HttpRouter
+- Chi
