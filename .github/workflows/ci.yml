@@ -22,6 +22,8 @@ jobs:
           POSTGRES_USER: root
           POSTGRES_PASSWORD: postgres123
           POSTGRES_DB: simple_bank
+        ports:
+          - 5432:5432  # Map container port 5432 to host port 5432
         # Set health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready
@@ -50,10 +52,11 @@ jobs:
           ls -l /usr/bin/migrate
           file /usr/bin/migrate
 
-    #  - name: Run migrations
-    #    run: |
-    #      sleep 15
-    #      migrate -path db/migration -database "postgresql://root:postgres123@localhost:5432/simple_bank?sslmode=disable" -verbose up
+      ## Uncomment the following block to run migrations
+      - name: Run migrations
+        run: |
+          sleep 15
+          migrate -path db/migration -database "postgresql://root:postgres123@localhost:5432/simple_bank?sslmode=disable" -verbose up
 
       - name: Test
         run: go test -v .
