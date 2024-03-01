@@ -52,7 +52,7 @@ jobs:
           file /usr/bin/migrate
 
       - name: Run migrations
-        run: migrateup
+        run: migrate -path db/migration -database "postgresql://root:postgres123@localhost:5432/simple_bank?sslmode=disable" -verbose up
 
       - name: Test
         run: go test -v .
