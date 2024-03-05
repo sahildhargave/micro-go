@@ -169,3 +169,23 @@ debug a deadloak
 - Gorilla Mux
 - HttpRouter
 - Chi
+
+## FILE
+- [x] Viper
+- Find , load, unmarshal config file
+- JSON, TOML, YMAL , ENV ,INI
+- Read cnfig from environment variables or flags
+  override existing values, set default values
+- Read Config from remote system
+  Etcd, Consul
+- Live watching and writing config file
+  Reread changed file, save any modifications
+
+###  MOCK DB
+- use fake db: memeory  implement a fake version of db: store data in memory
+
+### Use DB stubs: GOMOCK
+generate and build stubs that returns hard-coded values
+https://github.com/golang/mock
+
+
