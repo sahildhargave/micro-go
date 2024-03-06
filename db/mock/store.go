@@ -7,7 +7,6 @@ package mockdb
 import (
 	context "context"
 	reflect "reflect"
-	
 
 	gomock "github.com/golang/mock/gomock"
 	db "github.com/sahil/simplebank/db/sqlc"
@@ -17,6 +16,11 @@ import (
 type MockStore struct {
 	ctrl     *gomock.Controller
 	recorder *MockStoreMockRecorder
+}
+
+// GetUser implements db.Store.
+func (m *MockStore) GetUser(ctx context.Context, username string) (db.User, error) {
+	panic("unimplemented")
 }
 
 // MockStoreMockRecorder is the mock recorder for MockStore
@@ -81,7 +85,6 @@ func (mr *MockStoreMockRecorder) CreateEntry(arg0, arg1 interface{}) *gomock.Cal
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "CreateEntry", reflect.TypeOf((*MockStore)(nil).CreateEntry), arg0, arg1)
 }
 
-
 //
 //// CreateSession indicates an expected call of CreateSession
 //func (mr *MockStoreMockRecorder) CreateSession(arg0, arg1 interface{}) *gomock.Call {
@@ -104,7 +107,6 @@ func (mr *MockStoreMockRecorder) CreateTransfer(arg0, arg1 interface{}) *gomock.
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "CreateTransfer", reflect.TypeOf((*MockStore)(nil).CreateTransfer), arg0, arg1)
 }
 
-
 //
 //// CreateUser indicates an expected call of CreateUser
 //func (mr *MockStoreMockRecorder) CreateUser(arg0, arg1 interface{}) *gomock.Call {
@@ -112,14 +114,11 @@ func (mr *MockStoreMockRecorder) CreateTransfer(arg0, arg1 interface{}) *gomock.
 //	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "CreateUser", reflect.TypeOf((*MockStore)(nil).CreateUser), arg0, arg1)
 //}
 
-
-
 //// CreateUserTx indicates an expected call of CreateUserTx
 //func (mr *MockStoreMockRecorder) CreateUserTx(arg0, arg1 interface{}) *gomock.Call {
 //	mr.mock.ctrl.T.Helper()
 //	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "CreateUserTx", reflect.TypeOf((*MockStore)(nil).CreateUserTx), arg0, arg1)
 //}
-
 
 // CreateVerifyEmail indicates an expected call of CreateVerifyEmail
 //func (mr *MockStoreMockRecorder) CreateVerifyEmail(arg0, arg1 interface{}) *gomock.Call {
@@ -186,8 +185,6 @@ func (mr *MockStoreMockRecorder) GetEntry(arg0, arg1 interface{}) *gomock.Call {
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetEntry", reflect.TypeOf((*MockStore)(nil).GetEntry), arg0, arg1)
 }
 
-
-
 // GetSession indicates an expected call of GetSession
 //func (mr *MockStoreMockRecorder) GetSession(arg0, arg1 interface{}) *gomock.Call {
 //	mr.mock.ctrl.T.Helper()
@@ -208,8 +205,6 @@ func (mr *MockStoreMockRecorder) GetTransfer(arg0, arg1 interface{}) *gomock.Cal
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetTransfer", reflect.TypeOf((*MockStore)(nil).GetTransfer), arg0, arg1)
 }
-
-
 
 // GetUser indicates an expected call of GetUser
 //func (mr *MockStoreMockRecorder) GetUser(arg0, arg1 interface{}) *gomock.Call {
