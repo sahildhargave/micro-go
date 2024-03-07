@@ -201,4 +201,6 @@ BCRYPT HASH ------> cost , salt----> # (COST, SALT)
 	|
 	|
 	----> Encryption lock the server
-	
+
+#### Write stronger golang unit tests
+with a custom 
