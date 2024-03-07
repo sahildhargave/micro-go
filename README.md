@@ -189,3 +189,16 @@ generate and build stubs that returns hard-coded values
 https://github.com/golang/mock
 
 
+### Securely store password?
+
+Hash it & sotre its hash value
+
+BCRYPT HASH ------> cost , salt----> # (COST, SALT)
+                                     |
+--- OUTPUT --> ALG+COST+SALT+HASH    |
+    Brcrypt hash #(cost, salt) <---- |
+    |
+	|
+	|
+	----> Encryption lock the server
+	
