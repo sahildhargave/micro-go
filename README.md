@@ -430,4 +430,7 @@ Non-trivial security Forgery
    - Authentication
 - Footer:
   - Encoded
-  - Decoded
+  - Decoded 
+
+
+     
