@@ -452,3 +452,9 @@ Transfer money    ----------->       A logged-in user can only send money from h
 
 Build a minimal Golang Docker image
 Deploy an application
+Docker networking   --|
+Docker container    --|--->  can be inspect connect to containers
+Docker build        --|
+
+Docker Compose
+- [x] Start multiple services at once and control their start-up orders [wait-for]
