@@ -433,4 +433,18 @@ Non-trivial security Forgery
   - Decoded 
 
 
-     
+Authorization Rules
+
+API                --------->        Rule
+Create Account                       A logged-in user can only create an account for him/herself
+
+
+API                                  Rule
+Get Account       ----------->       A logged-in user can get accounts but  
+
+
+API               ----------->       Rule
+list Accounts                        A logged-in user can only  list accounts that belong to him/herself
+
+API                                  Rule
+Transfer money    ----------->       A logged-in user can only send money from his/her own account
