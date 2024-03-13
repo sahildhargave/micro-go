@@ -448,3 +448,7 @@ list Accounts                        A logged-in user can only  list accounts th
 
 API                                  Rule
 Transfer money    ----------->       A logged-in user can only send money from his/her own account
+
+
+Build a minimal Golang Docker image
+Deploy an application
