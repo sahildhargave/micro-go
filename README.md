@@ -448,3 +448,26 @@ list Accounts                        A logged-in user can only  list accounts th
 
 API                                  Rule
 Transfer money    ----------->       A logged-in user can only send money from his/her own account
+
+
+
+
+#### AWS 
+##### Fress or 12 month period
+- EC2 (AWS Elastic Compute Cloud) - Virtual servers in the    cloud, scalable computing capacity.
+- IAM - IAM (AWS Identity and Access Management) - Control access to AWS services and resources securely.
+- S3 - S3 (Amazon Simple Storage Service) - Object storage service for storing and retrieving data
+  
+##### Always Free
+- Amazon Cloudfront- Content delivery network (CDN) service for fast and secure delivery of data, videos, applications, and APIs.
+- Amazon DynamoDB  - Fully managed NoSQL database service for applications that need consistent, single-digit millisecond latency at any scale.
+
+- Amazon Chime- Unified communications service that transforms online meetings with a secure, easy-to-use application.
+
+##### Fress for 30-60 days
+- Amazaon Redshift   - Fast, fully managed, petabyte-scale data warehouse service.
+- Amazon Lightsail  - Virtual private servers, storage, databases, and networking for a low, predictable price.
+  
+######  Code deploy , code commit ,code build and code pipline  - 😋 Free services
+
+![Alt image](./assets/asw-1.PNG)
