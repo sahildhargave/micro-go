@@ -458,3 +458,6 @@ Docker build        --|
 
 Docker Compose
 - [x] Start multiple services at once and control their start-up orders [wait-for]
+
+
+#### AWS 

@@ -8,7 +8,8 @@ services:
     - POSTGRES_PASSWORD= postgres123
     - POSTGRES_DB= simple_bank
    ports:
-      - "5432:5432"
+      - "5433:5432"
+   
   
   api:
    build:
