@@ -1,5 +1,5 @@
 postgres:
-   docker run --name postgres12 -p 5432:5432 -e POSTGRES_USER=root -e POSTGRES_PASSWORD=postgres123 -d postgres:12-alpine
+   docker run --name postgres12 --network bank-network -p 5432:5432 -e POSTGRES_USER=root -e POSTGRES_PASSWORD=postgres123 -d postgres:12-alpine
 
 
 createdb:
@@ -32,7 +32,23 @@ test:
 server:
     go run main.go
 
+docker-network:
+    docker network inspect bank-network
+
+dockerimg:
+    docker images
+
+dockerps:
+	docker ps
+
+dockerconn:
+    docker network connect bank-network postgres
+
+
+dockerrun:
+   docker run --name simplebank --network bank-network -p 8080:8080 -e GIN_MODE=release -e DB_SOURCE="postgresql://root:postgres123@localhost:5432/simple_bank?sslmode=disable" simplebank:latest
+   
 mock:
     mockgen --package mockdb --destination db/mock/store.go github.com/sahil/simplebank/db/sqlc Store
 
-.PHONY: postgres createdb dropdb migrateup migratedown migrateup1 migratedown1 sqlc test server mock
+.PHONY: postgres createdb dropdb migrateup migratedown migrateup1 migratedown1 sqlc test server docker-network dockerimg dockerps dockerconn mock
