@@ -5,13 +5,13 @@
 - [x] postgres
 - [ ] redis
 - [ ] jenkins
-- [ ] AWS
-- [ ] Github 
+- [x] AWS
+- [x] Github 
 - [ ] Travis
 - [ ] Jenkins
-- [ ] CircleCl
-- [ ] Actions
-- [ ] Many more in future
+- [x] CircleCl
+- [x] Actions
+- [x] Many more in future
   
 
 ### Database / Sql
@@ -37,10 +37,10 @@
 ### Transation
 - example
 - [x] Transfer 10 rupess from bank to bank account 2
-- [ ]  create a transfer record with amount = 10
-- [ ]  Create an account entry for account 1 with amount = -10
-- [ ]  Substract 10 from the balance of account 1
-- [ ]  Add 10 from the balance of account 2
+- [x]  create a transfer record with amount = 10
+- [x]  Create an account entry for account 1 with amount = -10
+- [x]  Substract 10 from the balance of account 1
+- [x]  Add 10 from the balance of account 2
   
 ```
 - WHY DO WE NEED DB TRANSACTION?
@@ -233,17 +233,17 @@ Client          {access_token:JWT,PASETO,...} _________|
 - [x] Decoded
 
 #### SSL/TLS
-- [ ] Handshake Protocol
-- [ ] Symmetric crytography
-- [ ] Asymmetric crytography
-- [ ] Elliptic-curve cryptography
-- [ ] Digital certificates
-- [ ] Certificate authority
-- [ ] Digital signature
-- [ ] Diffie Hellman
-- [ ] Message authentication code
-- [ ] Bit-flipping attack
-- [ ] Quantum-computing attacks
+- [x] Handshake Protocol
+- [x] Symmetric crytography
+- [x] Asymmetric crytography
+- [x] Elliptic-curve cryptography
+- [x] Digital certificates
+- [x] Certificate authority
+- [x] Digital signature
+- [x] Diffie Hellman
+- [x] Message authentication code
+- [x] Bit-flipping attack
+- [x] Quantum-computing attacks
   
 - SSL:- Secure Socket Layer
   The Predecessor of TLS
@@ -476,6 +476,103 @@ Docker Compose
 - Amazaon Redshift   - Fast, fully managed, petabyte-scale data warehouse service.
 - Amazon Lightsail  - Virtual private servers, storage, databases, and networking for a low, predictable price.
   
+
+- RDS - Amazon Relational Database Service (Amazon RDS) is a collection of managed services that makes it simple to set up, operate, and scale databases in the cloud.
 ######  Code deploy , code commit ,code build and code pipline  - 😋 Free services
 
 ![Alt image](./assets/asw-1.PNG)
+
+#use full command for aws cli
+
+-  ls -l ~/.aws
+-  cat ~/.aws/config
+-  aws configure
+-  aws secretsmanager help
+   
+   full command are :
+   Available Commands
+******************
+
+* batch-get-secret-value
+
+* cancel-rotate-secret
+
+* create-secret
+
+* delete-resource-policy
+
+
+* list-secrets
+
+* put-resource-policy
+
+* put-secret-value
+
+* remove-regions-from-replication
+
+* replicate-secret-to-regions
+
+* restore-secret
+
+* rotate-secret
+
+* stop-replication-to-replica
+
+* tag-resource
+
+* untag-resource
+
+* update-secret
+
+* update-secret-version-stage
+
+* validate-resource-policy
+
+#### The formatting style for command output.
+
+* json
+
+* text
+
+* table
+
+* yaml
+
+* yaml-stream
+#### aws secretsmanager get-secret-value help
+- [x] generaly it give not valid if the amazon setting not give persmission 
+  
+
+  
+
+### installing the jqlang for the windows
+
+# aws secretsmanager get-secret-value --secret-id simple_bank
+
+// TODO : aws ecr get-login-password | docker login --username AWS --password-stdin 095420225348.dkr.ecr.eu-west-1.amazonaws.com
+
+
+// TODO : docker pull 095420225348.dkr.ecr.eu-west-1.amazonaws.com/simplebank:5750a6ef812d5775ef812d5775e9adc07708428dead6a54ceb
+
+// TODO : docker run 095420225348.dkr.ecr.eu-west-1.amazonaws.com/simplebank:5750a6ef812d5775ef812d5775e9adc07708428dead6a54ceb
+
+// TODO : echo $DB_SOURCE
+// TODO : source $DB_SOURCE
+// TODO : echo $DB_SOURCE
+// TODO : docker run -p 8080:8080 095420225348.dkr.ecr.eu-west-1.amazonaws.com/simplebank:5750a6ef812d5775ef812d5775e9adc07708428dead6a54ceb run db migrate
+
+###### What is Kubernetes?
+- An open-source container orchestration engine
+- For automating deployement , scaling, and management of containerized applications
+  
+  Kubernetes cluster consists of 2 main parts:
+  - [x] Worker Node 
+    it contain kubelet - Kubelets agent : make sure container
+	that the container run inside the pods
+
+
+### CREATE AN AWS EKS CLUSTER
+- [x] 😍Amazon Elastic Container Services (ECS)
+- [x] 😍Amazon Elastic Kubernetes Service (EKS)
+- [x] 😍Amazon Simple Secure Storage
+- [x] 😍
