@@ -1,7 +1,7 @@
 package api
 
 import (
-	"database/sql"
+	
 	"errors"
 	"fmt"
 	"net/http"
@@ -17,14 +17,13 @@ type transferRequest struct {
 	Amount        int64  `json:"amount" binding:"required,gt=0"`
 	Currency      string `json:"currency" binding:"required,currency"`
 }
-
 func (server *Server) createTransfer(ctx *gin.Context) {
 	var req transferRequest
 	if err := ctx.ShouldBindJSON(&req); err != nil {
 		ctx.JSON(http.StatusBadRequest, errorResponse(err))
 		return
 	}
-     
+
 	fromAccount, valid := server.validAccount(ctx, req.FromAccountID, req.Currency)
 	if !valid {
 		return
@@ -38,7 +37,6 @@ func (server *Server) createTransfer(ctx *gin.Context) {
 	}
 
 	_, valid = server.validAccount(ctx, req.ToAccountID, req.Currency)
-	
 	if !valid {
 		return
 	}
@@ -54,16 +52,18 @@ func (server *Server) createTransfer(ctx *gin.Context) {
 		ctx.JSON(http.StatusInternalServerError, errorResponse(err))
 		return
 	}
+
 	ctx.JSON(http.StatusOK, result)
 }
 
 func (server *Server) validAccount(ctx *gin.Context, accountID int64, currency string) (db.Account, bool) {
 	account, err := server.store.GetAccount(ctx, accountID)
 	if err != nil {
-		if err == sql.ErrNoRows {
+		if errors.Is(err, db.ErrRecordNotFound) {
 			ctx.JSON(http.StatusNotFound, errorResponse(err))
 			return account, false
 		}
+
 		ctx.JSON(http.StatusInternalServerError, errorResponse(err))
 		return account, false
 	}
@@ -73,5 +73,6 @@ func (server *Server) validAccount(ctx *gin.Context, accountID int64, currency s
 		ctx.JSON(http.StatusBadRequest, errorResponse(err))
 		return account, false
 	}
+
 	return account, true
 }
