@@ -471,3 +471,11 @@ Transfer money    ----------->       A logged-in user can only send money from h
 ######  Code deploy , code commit ,code build and code pipline  - 😋 Free services
 
 ![Alt image](./assets/asw-1.PNG)
+
+##### Kubernetes
+
+##### K9cli 
+
+
+##### Deloy a web app to kubernetes on aws
+
