@@ -18,4 +18,4 @@ spec:
         - name: simple-bank-api
           image: your-image-name:tag # Replace 'your-image-name:tag' with the actual image name and tag
           ports:
-            - containerPort: 80 # Specify the container port your application listens on
+            - containerPort: 8080 # Specify the container port your application listens on
