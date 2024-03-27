@@ -9,7 +9,7 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 9376
-  type: LoadBalancer
+  type: ClusterIP
   #    name: http-service
   #  - protocol: TCP
   #    port: 90

@@ -479,3 +479,22 @@ Transfer money    ----------->       A logged-in user can only send money from h
 
 ##### Deloy a web app to kubernetes on aws
 
+
+### Buying Domain Name And setup an A-Record to route requests to Kubernetes service -(Expose the service to the outlside world)-- these work only when had single service
+
+##### For the lot of services - we have create a lot of A records to route traffic to each of the service
+- to solve these ingress is best choice
+  - define multiple rules in the configuration file to route traffice to different services 
+  -  Ingresslso handle load balancing and ssl/tls termination
+  -  Setting up HTTPS for service be super easy and conenient
+  -  Ingress exposes HTTP and HTTPS routes from outside the cluster to services within the cluster. Traffic routing is contro Ingress resource.
+                                                 _______________________________________________________________
+                                                |                                                               |
+                                                |                                                               |
+                                                |                                       ________  Pod           |
+                                                |                                      |                        | 
+Client ------- Ingress-managed load balancer---> Ingress ---routing rule--->Service ---|                        |
+                                                |                                      |_______   Pod           |  
+												|									                            |  
+												|						Cluster									|
+												|_______________________________________________________________|
