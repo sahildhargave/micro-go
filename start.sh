@@ -1,11 +1,14 @@
 #!/bin/sh
 
-set -e
+set -e  # This ensures that the script exits immediately if any command returns a non-zero exit status.
 
-echo "start server"
-#source /app/app.env
-#
-#/app/migrate -path /app/migration -database "$DB_SOURCE" -verbose up
+echo "Starting server..."
 
-echo "start the app"
+# Uncomment the following lines if you need to source environment variables from app.env
+# source /app/app.env
+
+# Run database migrations (if applicable)
+# /app/migrate -path /app/migration -database "$DB_SOURCE" -verbose up
+
+echo "Starting the application..."
 exec "$@"
