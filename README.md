@@ -498,3 +498,8 @@ Client ------- Ingress-managed load balancer---> Ingress ---routing rule--->Serv
 												|									                            |  
 												|						Cluster									|
 												|_______________________________________________________________|
+
+
+
+##### Automatic deploy to kubernetes with Github Action
+
