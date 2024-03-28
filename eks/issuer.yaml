@@ -1,15 +1,14 @@
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
- name: letsendcrypt
- spec:
- acme:
-  email :  sahildhargave5253@gmail.com
-  server: https://acme-v02.api.letsencrypt.org/directory
-  privateKeySecretRef:
-   name: letsendcrypt-account-private-key
-
-  solvers:
-  - http01:
-      ingress:
-      class: nginx
+  name: letsendcrypt
+spec:
+  acme:
+    email: sahildhargave5253@gmail.com
+    server: https://acme-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      name: letsendcrypt-account-private-key
+    solvers:
+      - http01:
+          ingress:
+            class: nginx

@@ -14,10 +14,9 @@ spec:
       labels:
         app: simple-bank-api
     spec:
-
-       containers:
-         - name: simple-bank-api
-           image: 250116462332.dkr.ecr.ap-south-1.amazonaws.com/simplebank:latest
-           imagePullPolicy: Always
-           ports:
+      containers:
+        - name: simple-bank-api
+          image: 250116462332.dkr.ecr.ap-south-1.amazonaws.com/simplebank:latest
+          imagePullPolicy: Always
+          ports:
             - containerPort: 8080 # Specify the container port your application listens on
