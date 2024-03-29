@@ -24,11 +24,11 @@ func TestPasetoMaker(t *testing.T) {
 	issuedAt := time.Now()
 	expiredAt := issuedAt.Add(duration)
 
-	token, err := maker.CreateToken(username, duration)
+	token, payload, err := maker.CreateToken(username, duration)
 	require.NoError(t, err)
 	require.NotEmpty(t, token)
 
-	payload, err := maker.VerifyToken(token)
+	payload, err = maker.VerifyToken(token)
 	require.NoError(t, err)
 	require.NotEmpty(t, payload)
 
@@ -42,14 +42,16 @@ func TestExpiredPasetoToken(t *testing.T) {
 	maker, err := NewPasetoMaker(util.RandomString(32))
 	require.NoError(t, err)
 
-	token, err := maker.CreateToken(util.RandomOwner(), -time.Minute)
+	token, payload, err := maker.CreateToken(util.RandomOwner(), -time.Minute)
 	require.NoError(t, err)
 	require.NotEmpty(t, token)
+	require.NotEmpty(t, payload)
 
-	payload, err := maker.VerifyToken(token)
+	payload, err = maker.VerifyToken(token)
 	require.Error(t, err)
 	require.EqualError(t, err, ErrExpiredToken.Error())
 	require.Nil(t, payload)
+
 }
 
 func TestInvalidSignaturePasetoToken(t *testing.T) {
@@ -57,13 +59,13 @@ func TestInvalidSignaturePasetoToken(t *testing.T) {
 	require.NoError(t, err)
 
 	// Creating a valid token
-	token, err := maker.CreateToken(util.RandomOwner(), time.Minute)
+	token, payload, err := maker.CreateToken(util.RandomOwner(), time.Minute)
 	require.NoError(t, err)
 	require.NotEmpty(t, token)
 
 	// Modifying the token to invalidate the signature
 	invalidToken := "invalid" + token[7:] // Modify a part of the token
-	payload, err := maker.VerifyToken(invalidToken)
+	payload, err = maker.VerifyToken(invalidToken)
 	require.Error(t, err)
 
 	// Check if the error message contains the expected substring
