@@ -498,3 +498,29 @@ Client ------- Ingress-managed load balancer---> Ingress ---routing rule--->Serv
 												|									                            |  
 												|						Cluster									|
 												|_______________________________________________________________|
+
+
+										
+####  DBDocs
+##### npm install -g dbdocs install -g dbdocs
+##### dbdocs
+```
+USAGE
+  $ dbdocs [COMMAND]
+
+COMMANDS
+  build     build docs
+  help      Display help for dbdocs.
+  logout    logout
+  ls        list projects
+  password  set password for your project or remove       
+            password
+  remove    remove project
+  rename    change your username
+  token     generate or revoke your authentication token  
+  validate  validate docs content
+```
+
+#### for creating password dbdocs
+### dbdocs password --set <password_your> --project <project_name>
+
