@@ -2,6 +2,7 @@ package api
 
 import (
 	"bytes"
+	"database/sql"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -247,7 +248,7 @@ func TestLoginUserAPI(t *testing.T) {
 				"password": password,
 			},
 			buildStubs: func(store *mockdb.MockStore) {
-				store.EXPECT().
+				store.EXPECT(). 
 					GetUser(gomock.Any(), gomock.Any()).
 					Times(1).
 					Return(db.User{}, sql.ErrConnDone)
